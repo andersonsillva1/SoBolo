@@ -37,10 +37,6 @@ public abstract class Bolo implements IBolo {
         this.formato = formato;
     }
 
-    @Override
-    public double preco() {
-        return custo * formato.area();
-    }
 
     @Override
     public boolean equals(Object o) {
