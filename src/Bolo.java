@@ -39,9 +39,9 @@ public abstract class Bolo implements IBolo {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Bolo)) return false;
         Bolo bolo = (Bolo) o;
-        return codigo == bolo.codigo;
+        return this.codigo == bolo.codigo;
     }
 
     @Override
