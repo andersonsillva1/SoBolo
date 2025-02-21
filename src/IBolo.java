@@ -1,9 +1,9 @@
-public interface Bolo {
+public interface IBolo {
     double preco();
 }
 
 
-abstract class BoloBase implements Bolo {
+abstract class BoloBase implements IBolo {
     protected double custoUnitario;
 
     public BoloBase(double custoPorUnidade) {
