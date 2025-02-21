@@ -1,73 +1,52 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class VetorPrateleira {
-    private List<IBolo> Prateleira;
+public class VetorPrateleira implements IPrateleira {
+    private List<IBolo> prateleira;
     private int gtdBolo;
-
 
     public VetorPrateleira(int gtdBolo) {
         this.gtdBolo = gtdBolo;
-        this.Prateleira = new ArrayList<>();
+        this.prateleira = new ArrayList<>();
     }
 
-
-    public List<IBolo> getPrateleira() {
-        return new ArrayList<>(Prateleira);
-    }
-
-    public int getGtdBolo() {
-        return gtdBolo;
-    }
-
-
-    public void setPrateleira(List<IBolo> prateleira) {
-        if (prateleira != null) {
-            this.Prateleira = prateleira;
-        } else {
-            System.out.println("Erro: Lista de prateleira não pode ser nula!");
-        }
-    }
-
-    public void setGtdBolo(int gtdBolo) {
-        if (gtdBolo > 0) {
-            this.gtdBolo = gtdBolo;
-        } else {
-            System.out.println("Erro: Quantidade de bolos deve ser maior que zero.");
-        }
-    }
-
-
+    @Override
     public boolean cheia() {
-        return Prateleira.size() >= gtdBolo;
+        return prateleira.size() >= gtdBolo;
     }
 
+    @Override
     public boolean vazia() {
-        return Prateleira.isEmpty();
+        return prateleira.isEmpty();
     }
 
+    @Override
     public boolean existe(IBolo bolo) {
-        return Prateleira.contains(bolo);
+        return prateleira.contains(bolo);
     }
 
+    @Override
     public int buscar(IBolo bolo) {
-        return Prateleira.indexOf(bolo);
+        return prateleira.indexOf(bolo);
     }
 
-    public void inserir(IBolo bolo) {
+    @Override
+    public boolean inserir(IBolo bolo) {
         if (existe(bolo)) {
             System.out.println("Bolo já cadastrado!");
-            return;
+            return false;
         }
         if (cheia()) {
             System.out.println("Prateleira cheia. Não é possível adicionar mais bolos.");
-            return;
+            return false;
         }
-        Prateleira.add(bolo);
+        prateleira.add(bolo);
+        return true;
     }
 
+    @Override
     public IBolo remover(IBolo bolo) {
-        if (Prateleira.remove(bolo)) {
+        if (prateleira.remove(bolo)) {
             return bolo;
         } else {
             System.out.println("Bolo inexistente.");
@@ -75,38 +54,40 @@ public class VetorPrateleira {
         }
     }
 
+    @Override
     public IBolo remover(int posicao) {
-        if (posicao >= 0 && posicao < Prateleira.size()) {
-            return Prateleira.remove(posicao);
+        if (posicao >= 0 && posicao < prateleira.size()) {
+            return prateleira.remove(posicao);
         } else {
             System.out.println("Posição inválida. Bolo inexistente.");
             return null;
         }
     }
 
+    @Override
     public IBolo consultar(IBolo bolo) {
         int posicao = buscar(bolo);
         if (posicao != -1) {
-            return Prateleira.get(posicao);
+            return prateleira.get(posicao);
         }
         System.out.println("Bolo não encontrado.");
         return null;
     }
 
-    public List<IBolo> listar() {
-        return new ArrayList<>(Prateleira);
+    @Override
+    public IBolo[] listar() {
+        return prateleira.toArray(new IBolo[0]);
     }
 
-    public List<IBolo> listar(char tipoDoBolo) {
+    @Override
+    public IBolo[] listar(char tipoDoBolo) {
         List<IBolo> listaFiltrada = new ArrayList<>();
-
-        for (IBolo bolo : Prateleira) {
+        for (IBolo bolo : prateleira) {
             if ((tipoDoBolo == 'S' && bolo instanceof BoloSimples) ||
                     (tipoDoBolo == 'T' && bolo instanceof Torta)) {
                 listaFiltrada.add(bolo);
             }
         }
-
-        return listaFiltrada;
+        return listaFiltrada.toArray(new IBolo[0]);
     }
 }
