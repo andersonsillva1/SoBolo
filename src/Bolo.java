@@ -38,6 +38,11 @@ public abstract class Bolo implements IBolo {
     }
 
     @Override
+    public double preco() {
+        return custo * formato.area();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Bolo bolo = (Bolo) o;
