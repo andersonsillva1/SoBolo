@@ -1,5 +1,7 @@
-public interface IBolo extends Bolo {
-    double preco();
+public interface IBolo extends IFormato {
+    double getCusto();
+
+    default double preco() {
+        return getCusto() * area();
+    }
 }
-
-
