@@ -37,7 +37,6 @@ public abstract class Bolo implements IBolo {
         this.formato = formato;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

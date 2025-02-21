@@ -10,11 +10,15 @@ public class BoloSimples extends Bolo {
         this.semLactose = semLactose;
     }
 
-    //falta implementar
-    public double preco {
-
+    @Override
+    public double preco() {
+        double precoBase = getCusto() * getFormato().area();
+        return semLactose ? precoBase + 35.0 : precoBase;
     }
 
-    //toString
+    @Override
+    public String toString() {
+        return super.toString() + ", semLactose=" + semLactose;
+    }
 
 }

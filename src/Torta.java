@@ -28,12 +28,18 @@ public class Torta extends Bolo {
         this.cobertura = cobertura;
     }
 
-    //falat implementar
-    public boolean preco{
-
+    @Override
+    public double preco() {
+        double precoBase = getCusto() * getFormato().area();
+        if (recheio) precoBase += 12.5;
+        if (cobertura) precoBase += 20.0;
+        return precoBase;
     }
 
-    //toString
+    @Override
+    public String toString() {
+        return super.toString() + ", recheio=" + recheio + ", cobertura=" + cobertura;
+    }
 
 
 }

@@ -1,9 +1,3 @@
 public interface IFormato {
-
-    public double area {
-
-    }
-
-
-
+    double area ();
 }
