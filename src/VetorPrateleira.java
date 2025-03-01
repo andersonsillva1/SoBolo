@@ -35,13 +35,13 @@ public class VetorPrateleira implements IPrateleira {
         if (existe(bolo)) {
             System.out.println("Bolo já cadastrado!");
             return false;
-        }
-        if (cheia()) {
+        } else if (cheia()) {
             System.out.println("Prateleira cheia. Não é possível adicionar mais bolos.");
             return false;
+        } else {
+            prateleira.add(bolo);
+            return true;
         }
-        prateleira.add(bolo);
-        return true;
     }
 
     @Override
@@ -69,9 +69,10 @@ public class VetorPrateleira implements IPrateleira {
         int posicao = buscar(bolo);
         if (posicao != -1) {
             return prateleira.get(posicao);
+        }else {
+            System.out.println("Bolo não encontrado.");
+            return null;
         }
-        System.out.println("Bolo não encontrado.");
-        return null;
     }
 
     @Override
