@@ -3,13 +3,15 @@ public abstract class Bolo implements IBolo {
     private double custo;
     private IFormato formato;
 
-    public Bolo(int codigo, double custo) {
-        setCodigo(codigo);
+    private static int proximoCodigo = 1;
+
+    public Bolo(double custo) {
+        setCodigo(proximoCodigo++);
         setCusto(custo);
     }
 
-    public Bolo(int codigo, double custo, IFormato formato) {
-        this(codigo, custo);
+    public Bolo(double custo, IFormato formato) {
+        this(custo);
         setFormato(formato);
     }
 
@@ -36,6 +38,9 @@ public abstract class Bolo implements IBolo {
     public void setFormato(IFormato formato) {
         this.formato = formato;
     }
+
+    @Override
+    public abstract double preco();
 
     @Override
     public boolean equals(Object o) {

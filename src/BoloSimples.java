@@ -1,12 +1,12 @@
 public class BoloSimples extends Bolo {
     private boolean semLactose;
 
-    public BoloSimples(int codigo, double custo, IFormato formato) {
-        super(codigo, custo, formato);
+    public BoloSimples(double custo, IFormato formato) {
+        super(custo, formato);
     }
 
-    public BoloSimples(int codigo, double custo, IFormato formato, boolean semLactose) {
-        super(codigo, custo, formato);
+    public BoloSimples(double custo, IFormato formato, boolean semLactose) {
+        super(custo, formato);
         this.semLactose = semLactose;
     }
 

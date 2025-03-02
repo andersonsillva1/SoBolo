@@ -2,17 +2,17 @@ public class Torta extends Bolo {
     private boolean recheio;
     private boolean cobertura;
 
-    public Torta(int codigo, double custo, IFormato formato) {
-        super(codigo, custo, formato);
+    public Torta(double custo, IFormato formato) {
+        super(custo, formato);
     }
 
-    public Torta(int codigo, double custo, IFormato formato, boolean recheio, boolean cobertura) {
-        super(codigo, custo, formato);
+    public Torta(double custo, IFormato formato, boolean recheio, boolean cobertura) {
+        super(custo, formato);
         setRecheio(recheio);
         setCobertura(cobertura);
     }
 
-    public boolean isRecheio() {
+    public boolean eRecheio() {
         return recheio;
     }
 
@@ -20,7 +20,7 @@ public class Torta extends Bolo {
         this.recheio = recheio;
     }
 
-    public boolean isCobertura() {
+    public boolean eCobertura() {
         return cobertura;
     }
 
