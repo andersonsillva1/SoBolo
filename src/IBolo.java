@@ -1,3 +1,3 @@
-public interface IBolo {
-    double preco();
+public interface IBolo {g
+    double preco();g
 }
