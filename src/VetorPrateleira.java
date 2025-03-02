@@ -9,6 +9,10 @@ public class VetorPrateleira implements IPrateleira {
         this.gtdBolo = gtdBolo;
         this.prateleira = new ArrayList<>();
     }
+    public VetorPrateleira() {
+        this.gtdBolo = -1;
+        this.prateleira = new ArrayList<>();
+    }
 
     @Override
     public boolean cheia() {
