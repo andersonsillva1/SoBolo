@@ -16,7 +16,7 @@ public class VetorPrateleira implements IPrateleira {
 
     @Override
     public boolean cheia() {
-        return prateleira.size() >= gtdBolo;
+        return gtdBolo != -1 && prateleira.size() >= gtdBolo;
     }
 
     @Override
